@@ -4,7 +4,7 @@
 //
 //  Created by Angel Morales @TheKairuz on 12/03/17.
 //  Copyright © 2017 TheKairuzBlog. All rights reserved.
-//
+///
 
 import UIKit
 
