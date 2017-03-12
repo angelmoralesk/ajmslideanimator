@@ -12,6 +12,10 @@
 		88BB3DAB1E75E62C00E9B006 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BB3DA91E75E62C00E9B006 /* Main.storyboard */; };
 		88BB3DAD1E75E62C00E9B006 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88BB3DAC1E75E62C00E9B006 /* Assets.xcassets */; };
 		88BB3DB01E75E62C00E9B006 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BB3DAE1E75E62C00E9B006 /* LaunchScreen.storyboard */; };
+		88BB3DB91E75E66500E9B006 /* AJMSlideAnimatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB3DB81E75E66500E9B006 /* AJMSlideAnimatorView.swift */; };
+		88BB3DBB1E75E89400E9B006 /* museo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88BB3DBA1E75E89400E9B006 /* museo.jpg */; };
+		88BB3DBD1E75E9BB00E9B006 /* eiffel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88BB3DBC1E75E9BB00E9B006 /* eiffel.jpg */; };
+		88BB3DBF1E75E9C200E9B006 /* usapool.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88BB3DBE1E75E9C200E9B006 /* usapool.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		88BB3DAC1E75E62C00E9B006 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88BB3DAF1E75E62C00E9B006 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88BB3DB11E75E62C00E9B006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88BB3DB81E75E66500E9B006 /* AJMSlideAnimatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AJMSlideAnimatorView.swift; path = Views/AJMSlideAnimatorView.swift; sourceTree = "<group>"; };
+		88BB3DBA1E75E89400E9B006 /* museo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = museo.jpg; sourceTree = "<group>"; };
+		88BB3DBC1E75E9BB00E9B006 /* eiffel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eiffel.jpg; sourceTree = "<group>"; };
+		88BB3DBE1E75E9C200E9B006 /* usapool.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = usapool.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,26 @@
 		88BB3DA41E75E62C00E9B006 /* AJMSlideAnimator */ = {
 			isa = PBXGroup;
 			children = (
+				88BB3DB71E75E64B00E9B006 /* Views */,
 				88BB3DA51E75E62C00E9B006 /* AppDelegate.swift */,
 				88BB3DA71E75E62C00E9B006 /* ViewController.swift */,
 				88BB3DA91E75E62C00E9B006 /* Main.storyboard */,
 				88BB3DAC1E75E62C00E9B006 /* Assets.xcassets */,
 				88BB3DAE1E75E62C00E9B006 /* LaunchScreen.storyboard */,
 				88BB3DB11E75E62C00E9B006 /* Info.plist */,
+				88BB3DBA1E75E89400E9B006 /* museo.jpg */,
+				88BB3DBC1E75E9BB00E9B006 /* eiffel.jpg */,
+				88BB3DBE1E75E9C200E9B006 /* usapool.jpg */,
 			);
 			path = AJMSlideAnimator;
+			sourceTree = "<group>";
+		};
+		88BB3DB71E75E64B00E9B006 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				88BB3DB81E75E66500E9B006 /* AJMSlideAnimatorView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +116,7 @@
 				TargetAttributes = {
 					88BB3DA11E75E62C00E9B006 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = U4J2U6VS3H;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -124,7 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				88BB3DB01E75E62C00E9B006 /* LaunchScreen.storyboard in Resources */,
+				88BB3DBF1E75E9C200E9B006 /* usapool.jpg in Resources */,
+				88BB3DBB1E75E89400E9B006 /* museo.jpg in Resources */,
 				88BB3DAD1E75E62C00E9B006 /* Assets.xcassets in Resources */,
+				88BB3DBD1E75E9BB00E9B006 /* eiffel.jpg in Resources */,
 				88BB3DAB1E75E62C00E9B006 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88BB3DB91E75E66500E9B006 /* AJMSlideAnimatorView.swift in Sources */,
 				88BB3DA81E75E62C00E9B006 /* ViewController.swift in Sources */,
 				88BB3DA61E75E62C00E9B006 /* AppDelegate.swift in Sources */,
 			);
@@ -258,6 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U4J2U6VS3H;
 				INFOPLIST_FILE = AJMSlideAnimator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.angelmorales.AJMSlideAnimator;
@@ -270,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U4J2U6VS3H;
 				INFOPLIST_FILE = AJMSlideAnimator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.angelmorales.AJMSlideAnimator;
