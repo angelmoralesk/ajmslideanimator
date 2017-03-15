@@ -11,11 +11,12 @@ dismissal from screen.
   ```swift
       @IBOutlet weak var animatorView: AJMSlideAnimatorView!
   ```
-3.  Set the initial image for you animator view by calling the function addSource sending a UIImage as a parameter
+3.  Set the initial image for you animator view by calling the function addSource sending a UIImage as a parameter and a AJMSlideAnimatorStyle
 
   ```swift
   let image = UIImage(named: name)!
-  animatorView.addSource(image: image)
+  var style : AJMSlideAnimatorStyle = .Horizontal
+  animatorView.addSource(image: image, usingStyle: style)
   ```
 4.  Start animating your view, use the completion handler to perform custom logic
 
@@ -26,7 +27,7 @@ dismissal from screen.
   ``` 
 
 ## Preview
-![](http://i.giphy.com/2lI68l7PEZnpu.gif)
+![](http://i.giphy.com/2xsjf7fH7IyqY.gif)
 
 ##License
 MIT
