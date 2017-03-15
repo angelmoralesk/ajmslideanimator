@@ -8,12 +8,18 @@
 
 import UIKit
 
+enum AJMSlideAnimatorStyle {
+    case Horizontal
+    case Vertical
+}
+
 class AJMSlideAnimatorView : UIView {
     
     var imageView : UIImageView?
     private var compOne : UIView?
     private var compTwo : UIView?
-    
+    var style : AJMSlideAnimatorStyle = .Vertical
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         imageView = UIImageView(frame: self.bounds)
