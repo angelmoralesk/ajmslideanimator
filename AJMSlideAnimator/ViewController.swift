@@ -25,11 +25,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func changeImage(_ sender: UIButton) {
-    
+     
+        var style :AJMSlideAnimatorStyle = .Horizontal
+        if index % 2 == 0 {
+            style = .Vertical
+        }
         let name = images[index]
         let image = UIImage(named: name)!
         
-        animatorView.addSource(image: image)
+        animatorView.addSource(image: image, usingStyle: style)
         animatorView.animate(completion: {(completed) in
             self.index += 1
             if self.index > self.images.count - 1 {
