@@ -13,12 +13,18 @@ enum AJMSlideAnimatorStyle {
     case Vertical
 }
 
+enum AJMSlide : Int {
+    case Simple = 1
+    case Multiple = 3
+}
+
 class AJMSlideAnimatorView : UIView {
     
     var imageView : UIImageView?
     private var compOne : UIView?
     private var compTwo : UIView?
     var style : AJMSlideAnimatorStyle = .Vertical
+    var slide : AJMSlide?
     var imageViews : [UIImageView]?
 
     override init(frame: CGRect) {
@@ -45,11 +51,17 @@ class AJMSlideAnimatorView : UIView {
         setupComponents()
     }
     
-    func addSource(image : UIImage, usingStyle style: AJMSlideAnimatorStyle, withComponents comp : Int) {
+    func addSource(image : UIImage, usingStyle style: AJMSlideAnimatorStyle, slide : AJMSlide = .Simple) {
+        
+        if style == .Horizontal && slide == .Multiple {
+            assertionFailure("Under construction!")
+        }
         imageView?.image = image
         imageView?.contentMode = .scaleAspectFill
         self.style = style
-        setupComponents(comp: comp)
+        self.slide = slide
+        setupComponents(comp: slide.rawValue)
+        
     }
 
     func setupComponents(comp : Int) {
@@ -291,7 +303,13 @@ class AJMSlideAnimatorView : UIView {
         }
     }
     
-    func animateComponents(components : Int, completion : @escaping (Bool) -> ()){
+    func animateMultipleComponents(completion : @escaping (Bool) -> ()){
+        
+        if slide != .Multiple {
+            return
+        }
+        
+        let components = slide?.rawValue
         
         var endFrame : CGRect = CGRect.zero
         
@@ -319,7 +337,7 @@ class AJMSlideAnimatorView : UIView {
         UIView.animate(withDuration: 2.0, delay: 1, options: .curveLinear, animations: {
             
             var x = 0
-            while x < components {
+            while x < components! {
                 for view in (self.imageView?.subviews)! {
                     if let imgView = view as? UIImageView {
                         imgView.frame = endFrams[x]
@@ -330,8 +348,9 @@ class AJMSlideAnimatorView : UIView {
             }
             
         }) { (completed) in
-          //  self.compOne?.removeFromSuperview()
-          //  self.compTwo?.removeFromSuperview()
+            for aView in (self.imageView?.subviews)! {
+               aView.removeFromSuperview()
+            }
             completion(true)
             
         }

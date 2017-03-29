@@ -42,8 +42,24 @@ class ViewController: UIViewController {
         })
 
         
-        
+      
     }
 
+    @IBAction func useMultipleSlideAnimation(_ sender: Any) {
+        
+        let name = images[index]
+        let image = UIImage(named: name)!
+        
+        let slide : AJMSlide = .Multiple
+        animatorView.addSource(image: image, usingStyle: .Vertical, slide : slide)
+        animatorView.animateMultipleComponents(completion:{ (completed) in
+            
+            self.index += 1
+            if self.index > self.images.count - 1 {
+                self.index = 0
+            }
+        })
+    
+    }
 }
 
