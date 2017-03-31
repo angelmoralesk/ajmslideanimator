@@ -3,6 +3,8 @@
 AJMSlideAnimatorView is a custom view which takes a UIImage, divides it up to 3 components and then dynamically animates their
 dismissal from screen.
 
+![Preview](http://www.thekairuz.com/blog/wp-content/uploads/2017/03/AJMAlideAnimatorViewPreview-e1490932457602.png)
+
 ## Usage
 1. Import the class AJMSlideAnimatorView class in your existing project.
 
