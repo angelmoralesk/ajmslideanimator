@@ -1,7 +1,9 @@
 # AJMSlideAnimator
 
-AJMSlideAnimatorView is a custom view which takes a UIImage, divides it in two components and then dynamically animates their
+AJMSlideAnimatorView is a custom view which takes a UIImage, divides it up to 3 components and then dynamically animates their
 dismissal from screen.
+
+![Preview](http://www.thekairuz.com/blog/wp-content/uploads/2017/03/AJMAlideAnimatorViewPreview-e1490932457602.png)
 
 ## Usage
 1. Import the class AJMSlideAnimatorView class in your existing project.
@@ -11,23 +13,42 @@ dismissal from screen.
   ```swift
       @IBOutlet weak var animatorView: AJMSlideAnimatorView!
   ```
-3.  Set the initial image for you animator view by calling the function addSource sending a UIImage as a parameter and a AJMSlideAnimatorStyle
+  
+## Simple animation
+1.  Set the initial image for you animator view by calling the function addSource sending a UIImage as a parameter and a AJMSlideAnimatorStyle
 
   ```swift
   let image = UIImage(named: name)!
   var style : AJMSlideAnimatorStyle = .Horizontal
   animatorView.addSource(image: image, usingStyle: style)
   ```
-4.  Start animating your view, use the completion handler to perform custom logic
+
+2.  Start animating your view, use the completion handler to perform custom logic
 
   ```swift
   animatorView.animate(completion: {(completed) in
            
         })
   ``` 
+## Multiple animation
 
+1.  Set the initial image for you animator view by calling the function addSource sending a UIImage as a parameter, and a AJMSlideAnimatorStyle and AJMSlide
+
+  ```swift
+  let image = UIImage(named: name)!
+  let slide : AJMSlide = .Multiple
+  animatorView.addSource(image: image, usingStyle: .Vertical, slide : slide)
+  ```
+
+2.  Start animating your view, use the completion handler to perform custom logic
+
+  ```swift
+  animatorView.animateMultipleComponents(completion: {(completed) in    
+        })
+   ```
+   
 ## Preview
-![](http://i.giphy.com/2xsjf7fH7IyqY.gif)
+![](https://media.giphy.com/media/XobhJApmBMNc4/giphy.gif)
 
-##License
+## License
 MIT
