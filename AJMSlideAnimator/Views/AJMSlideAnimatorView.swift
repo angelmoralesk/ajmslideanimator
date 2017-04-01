@@ -29,19 +29,19 @@ class AJMSlideAnimatorView : UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        prepareImageView()
+    }
+    
+    func prepareImageView(){
         imageView = UIImageView(frame: self.bounds)
         imageView?.contentMode = .scaleAspectFill
         imageView?.clipsToBounds = true
         addSubview(imageView!)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        imageView = UIImageView(frame: self.bounds)
-        imageView?.contentMode = .scaleAspectFill
-        imageView?.clipsToBounds = true
-        addSubview(imageView!)
+        prepareImageView()
     }
     
     func addSource(image : UIImage, usingStyle style: AJMSlideAnimatorStyle) {

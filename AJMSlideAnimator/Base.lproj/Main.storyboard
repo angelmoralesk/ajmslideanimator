@@ -27,7 +27,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDB-wq-bRf">
-                                <rect key="frame" x="16" y="583" width="343" height="30"/>
+                                <rect key="frame" x="16" y="20" width="343" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Simple"/>
                                 <connections>
@@ -35,7 +35,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19R-Th-qmm">
-                                <rect key="frame" x="16" y="629" width="343" height="30"/>
+                                <rect key="frame" x="16" y="66" width="343" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Multiple"/>
                                 <connections>
@@ -45,7 +45,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="19R-Th-qmm" secondAttribute="bottom" constant="8" symbolic="YES" id="Jio-qe-6aW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="19R-Th-qmm" secondAttribute="bottom" constant="571" id="Jio-qe-6aW"/>
                             <constraint firstItem="19R-Th-qmm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MCI-lk-BaB"/>
                             <constraint firstItem="19R-Th-qmm" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Mu5-Vb-mMz"/>
                             <constraint firstAttribute="leadingMargin" secondItem="mDB-wq-bRf" secondAttribute="leading" id="Qur-vn-00Z"/>
