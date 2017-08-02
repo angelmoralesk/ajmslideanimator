@@ -11,12 +11,12 @@ import UIKit
 
 protocol AJMAnimatable {
     
-    func prepareImageViews()
-    
+    func prepareContent()
+    func animate(completion : @escaping (Bool) -> ())
 }
 
 
-struct SingleAnimation : AJMAnimatable {
+struct SingleVerticalAnimation : AJMAnimatable {
     
     let rect : CGRect
     let mainImageView : UIImageView
