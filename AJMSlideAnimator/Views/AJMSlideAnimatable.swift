@@ -41,8 +41,78 @@ struct SingleVerticalAnimation : AJMAnimatable {
         
     }
     
-    func prepareImageViews() {
+    func prepareContent() {
         
+        guard let image = mainImageView.image else { return }
+        
+        let first = compOne
+        let second = compTwo
+        
+        // add them to the main imageView
+        mainImageView.addSubview(first)
+        mainImageView.addSubview(second)
+        
+        // set the first image
+        let halfSize = CGSize(width: rect.width / 2 , height: rect.height)
+        
+        UIGraphicsBeginImageContext(halfSize)
+        
+        mainImageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let firstHalf = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        first.image = firstHalf
+        
+        // set the second image
+        UIGraphicsBeginImageContext(second.frame.size)
+        
+        let currentContext = UIGraphicsGetCurrentContext()
+        currentContext!.clip( to: mainImageView.bounds)
+        let drawRect = CGRect(x: -second.frame.origin.x,
+                              y: -second.frame.origin.y,
+                              width: rect.width,
+                              height: rect.height)
+        
+        currentContext!.draw(image.cgImage!, in: drawRect)
+        
+        currentContext!.translateBy(x: 0, y: rect.height)
+        currentContext!.scaleBy(x: 1, y: -1);
+        
+        currentContext?.draw(image.cgImage!, in: drawRect)
+        
+        //pull the second image from our cropped context
+        let cropped = UIGraphicsGetImageFromCurrentImageContext();
+        
+        //pop the context to get back to the default
+        UIGraphicsEndImageContext();
+        
+        second.image = cropped
+        
+    }
+    
+    func animate(completion : @escaping (Bool) -> ()) {
+        
+        var firstEndFrame : CGRect = CGRect.zero
+        var secondEndFrame : CGRect = CGRect.zero
+        
+        firstEndFrame = CGRect(x: 0, y: compOne.frame.height, width: compOne.frame.width, height: compOne.frame.height)
+        secondEndFrame = CGRect(x: compTwo.frame.origin.x, y: compTwo.frame.height * -1, width: compTwo.frame.width , height: self.compTwo.frame.height)
+        
+        mainImageView.image = nil
+        UIView.animate(withDuration: 2.0, delay: 1, options: .curveLinear, animations: {
+            
+            self.compOne.frame = firstEndFrame
+            
+            self.compTwo.frame = secondEndFrame
+            
+            
+        }) { (completed) in
+            self.compOne.removeFromSuperview()
+            self.compTwo.removeFromSuperview()
+            completion(true)
+            
+        }
     }
     
     
