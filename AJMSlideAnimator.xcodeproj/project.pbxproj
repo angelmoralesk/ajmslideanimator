@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		884EDCD21F317BF100EFDF44 /* AJMSlideAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884EDCD11F317BF100EFDF44 /* AJMSlideAnimatable.swift */; };
 		88BB3DA61E75E62C00E9B006 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB3DA51E75E62C00E9B006 /* AppDelegate.swift */; };
 		88BB3DA81E75E62C00E9B006 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB3DA71E75E62C00E9B006 /* ViewController.swift */; };
 		88BB3DAB1E75E62C00E9B006 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BB3DA91E75E62C00E9B006 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		884EDCD11F317BF100EFDF44 /* AJMSlideAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AJMSlideAnimatable.swift; path = Views/AJMSlideAnimatable.swift; sourceTree = "<group>"; };
 		88BB3DA21E75E62C00E9B006 /* AJMSlideAnimator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJMSlideAnimator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BB3DA51E75E62C00E9B006 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88BB3DA71E75E62C00E9B006 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				88BB3DB81E75E66500E9B006 /* AJMSlideAnimatorView.swift */,
+				884EDCD11F317BF100EFDF44 /* AJMSlideAnimatable.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			files = (
 				88BB3DB91E75E66500E9B006 /* AJMSlideAnimatorView.swift in Sources */,
 				88BB3DA81E75E62C00E9B006 /* ViewController.swift in Sources */,
+				884EDCD21F317BF100EFDF44 /* AJMSlideAnimatable.swift in Sources */,
 				88BB3DA61E75E62C00E9B006 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +328,7 @@
 				88BB3DB61E75E62C00E9B006 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
