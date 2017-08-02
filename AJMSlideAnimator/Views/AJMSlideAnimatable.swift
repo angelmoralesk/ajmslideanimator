@@ -7,3 +7,30 @@
 //
 
 import Foundation
+import UIKit
+
+protocol AJMAnimatable {
+    
+    func prepareImageViews()
+    
+}
+
+
+struct SingleAnimation : AJMAnimatable {
+    
+    let rect : CGRect
+    let mainImageView : UIImageView
+    let style : AJMSlideAnimatorStyle
+    
+    init(rect : CGRect, imageView :UIImageView, style :AJMSlideAnimatorStyle) {
+        self.rect = rect
+        self.mainImageView = imageView
+        self.style = style
+    }
+    
+    func prepareImageViews() {
+        
+    }
+    
+    
+}
