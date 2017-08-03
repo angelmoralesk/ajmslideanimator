@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		881A6E851F322DB6007FD915 /* SimpleVerticalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881A6E841F322DB6007FD915 /* SimpleVerticalAnimation.swift */; };
 		881A6E871F322DFA007FD915 /* SimpleHorizontalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881A6E861F322DFA007FD915 /* SimpleHorizontalAnimation.swift */; };
+		8838DB941F33D21B0071305C /* MultipleVerticalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8838DB931F33D21B0071305C /* MultipleVerticalAnimation.swift */; };
 		884EDCD21F317BF100EFDF44 /* AJMSlideAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884EDCD11F317BF100EFDF44 /* AJMSlideAnimatable.swift */; };
 		88BB3DA61E75E62C00E9B006 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB3DA51E75E62C00E9B006 /* AppDelegate.swift */; };
 		88BB3DA81E75E62C00E9B006 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB3DA71E75E62C00E9B006 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		881A6E841F322DB6007FD915 /* SimpleVerticalAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleVerticalAnimation.swift; path = Views/SimpleVerticalAnimation.swift; sourceTree = "<group>"; };
 		881A6E861F322DFA007FD915 /* SimpleHorizontalAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleHorizontalAnimation.swift; path = Views/SimpleHorizontalAnimation.swift; sourceTree = "<group>"; };
+		8838DB931F33D21B0071305C /* MultipleVerticalAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipleVerticalAnimation.swift; path = Views/MultipleVerticalAnimation.swift; sourceTree = "<group>"; };
 		884EDCD11F317BF100EFDF44 /* AJMSlideAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AJMSlideAnimatable.swift; path = Views/AJMSlideAnimatable.swift; sourceTree = "<group>"; };
 		88BB3DA21E75E62C00E9B006 /* AJMSlideAnimator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJMSlideAnimator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BB3DA51E75E62C00E9B006 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				884EDCD11F317BF100EFDF44 /* AJMSlideAnimatable.swift */,
 				881A6E841F322DB6007FD915 /* SimpleVerticalAnimation.swift */,
 				881A6E861F322DFA007FD915 /* SimpleHorizontalAnimation.swift */,
+				8838DB931F33D21B0071305C /* MultipleVerticalAnimation.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				88BB3DA81E75E62C00E9B006 /* ViewController.swift in Sources */,
 				884EDCD21F317BF100EFDF44 /* AJMSlideAnimatable.swift in Sources */,
 				88BB3DA61E75E62C00E9B006 /* AppDelegate.swift in Sources */,
+				8838DB941F33D21B0071305C /* MultipleVerticalAnimation.swift in Sources */,
 				881A6E851F322DB6007FD915 /* SimpleVerticalAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
