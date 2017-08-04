@@ -19,31 +19,93 @@ struct FlipTileAnimation : AJMAnimatable {
         self.rect = aRect
         self.mainImageView = imageView
         
+        let image = mainImageView.image!
+        //let size = image.size.applying(CGAffineTransform(scaleX: 0.5, y: 0.5))
+        let size = imageView.frame.size
+        let hasAlpha = false
+        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+        image.draw(in: CGRect(origin: CGPoint.zero, size: imageView.frame.size))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        
         // prepare the frames for the imageViews
         let width = mainImageView.frame.width / CGFloat(columns)
         let height = mainImageView.frame.height / CGFloat(rows)
-        
-        for i in 0...Int(rows) {
-            for j in 0...Int(columns) {
-                let imageView = UIImageView(frame: CGRect(x: CGFloat(i)*width, y: CGFloat(j)*height, width: width, height: height))
-                imageViews.append(imageView)
+         mainImageView.image = nil
+        for i in 0..<Int(rows) {
+            for j in 0..<Int(columns) {
+                let imgView = UIImageView(frame: CGRect(x: CGFloat(i)*width, y: CGFloat(j)*height, width: width, height: height))
+                print("rect \(imgView.frame)")
+                
+                
+                
+                let croppedImage = cropImage(imageToCrop: image, toRect: imgView.frame)
+                imgView.image = croppedImage
+                imageViews.append(imgView)
+                mainImageView.addSubview(imgView)
             }
         }
+       
     }
     
     func prepareContent() {
         
-        guard let image = mainImageView.image else { return }
+       /* guard let image = mainImageView.image else { return }
         
         for i in 0..<imageViews.count {
-            let croppedImage = cropImage(imageToCrop: image, toRect: imageViews[i].frame)
-            print("Hola")
+            let anImageView =  imageViews[i]
+            let croppedImage = cropImage(imageToCrop: image, toRect: anImageView.frame)
+            anImageView.image = croppedImage
         }
-        
+        */
     }
     
     func animate(completion: @escaping (Bool) -> ()) {
         
+        let snapshot = imageViews[2]
+        let finalFrame = imageViews[2].frame
+        
+        let copy = UIImageView(frame: snapshot.frame)
+        copy.image = snapshot.image
+        let image = snapshot.image
+        mainImageView.addSubview(copy)
+       // snapshot.image = nil
+        
+        var transform = CATransform3DIdentity
+        transform.m34 = -0.002
+        mainImageView.layer.sublayerTransform = transform
+        
+        copy.layer.transform = CATransform3DMakeRotation(CGFloat(-M_PI_2), 0.0, 1.0, 0.0)
+        
+        UIView.animateKeyframes(
+            withDuration: 6,
+            delay: 0,
+            options: .calculationModeCubic,
+            animations: {
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/3, animations: {
+                    snapshot.frame = finalFrame
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
+                    snapshot.layer.transform = CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 1.0, 0.0)
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
+                   // toVC.view.layer.transform = AnimationHelper.yRotation(0.0)
+                    copy.layer.transform = CATransform3DMakeRotation(CGFloat(0.0), 0.0, 1.0, 0.0)
+
+                })
+        },
+            completion: { _ in
+              //  fromVC.view.hidden = false
+              //  snapshot.removeFromSuperview()
+              //  transitionContext.completeTransition(!transitionContext.transitionWasCancelled())*/
+        })
     }
     
     func cropImage(imageToCrop:UIImage, toRect rect:CGRect) -> UIImage{
