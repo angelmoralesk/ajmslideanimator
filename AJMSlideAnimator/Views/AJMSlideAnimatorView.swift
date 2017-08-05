@@ -11,18 +11,13 @@ import UIKit
 enum AJMSlideAnimatorStyle {
     case Horizontal
     case Vertical
-}
-
-enum AJMSlide : Int {
-    case Simple = 1
-    case Multiple = 3
+    case Tile(Int, Int)
 }
 
 class AJMSlideAnimatorView : UIView {
     
     var imageView : UIImageView?
     
-    var slide : AJMSlide?
     var animator : AJMAnimatable?
 
     override init(frame: CGRect) {
@@ -49,19 +44,22 @@ class AJMSlideAnimatorView : UIView {
         for aView in (imageView?.subviews)! {
             aView.removeFromSuperview()
         }
+        
+        switch style {
+        case .Horizontal:
+            animator = SimpleHorizontalAnimation(rect: self.bounds, imageView: imageView!)
+            break
+        case .Vertical:
+            animator = SimpleVerticalAnimation(rect: self.bounds, imageView: imageView!)
+            break
+        case .Tile(let rows,let columns):
+            animator = FlipTileAnimation(rows: rows , columns: columns, aRect: self.bounds, imageView: imageView!)
+            break
+        default: break
+        }
 
-        animator = FlipTileAnimation(rows: 10, columns: 10, aRect:  self.bounds, imageView: imageView!)
-        animator?.prepareContent()
-        
-    }
-    
-    func addSource(image : UIImage, usingStyle style: AJMSlideAnimatorStyle, slide : AJMSlide = .Simple) {
-  
-        imageView?.image = image
-        imageView?.contentMode = .scaleAspectFill
-        
-        animator = MultipleVerticalAnimation(rect: self.bounds, imageView: imageView!)
-        animator?.prepareContent()
+        guard let animator = animator else { return }
+        animator.prepareContent()
         
     }
 
