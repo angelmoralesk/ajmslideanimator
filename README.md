@@ -2,7 +2,7 @@
 
 AJMSlideAnimatorView is a custom view which takes an UIImage, divides it up into components and, by using an animation style, it dynamically animates their dismissal from screen. There are 3 different animation styles available: Simple, Vertical and Tile which takes the number of rows and columns.
 
-![](http://www.thekairuz.com/blog/wp-content/uploads/2017/08/Captura-de-pantalla-2017-08-05-a-las-2.24.21-p.m..png)
+![Preview](https://media.giphy.com/media/ifVSLf4CIYD7i/giphy.gif)
 
 ## Usage
 
@@ -50,8 +50,7 @@ AJMSlideAnimatorView is a custom view which takes an UIImage, divides it up into
   animatorView.animate(completion: {(completed) in    
         })
    ```
-## Demo
 
-![Preview](https://media.giphy.com/media/ifVSLf4CIYD7i/giphy.gif)
+
 ## License
 MIT
