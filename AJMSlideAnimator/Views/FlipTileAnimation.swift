@@ -108,6 +108,51 @@ struct FlipTileAnimation : AJMAnimatable {
         })
     }
     
+    func animate(completion: @escaping (Bool) -> ()) {
+        
+        for i in 0..<imageViews.count {
+            let snapshot = imageViews[i]
+            let destinationView = UIImageView(frame: snapshot.frame)
+            
+            let finalFrame = imageViews[i].frame
+            
+            var transform = CATransform3DIdentity
+            transform.m34 = -0.002
+            mainImageView.layer.sublayerTransform = transform
+            self.mainImageView.insertSubview(destinationView, belowSubview: imageViews[2])
+            
+            destinationView.layer.transform = CATransform3DMakeRotation(CGFloat(-M_PI_2), 0.0, 1.0, 0.0)
+            
+            let time = Int32(arc4random_uniform(UInt32(10)) - arc4random_uniform(UInt32(2)))
+            
+            UIView.animateKeyframes(
+                withDuration: TimeInterval(abs(time)),
+                delay: 0,
+                options: .calculationModeCubic,
+                animations: {
+                    
+                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/3, animations: {
+                        snapshot.frame = finalFrame
+                    })
+                    
+                    UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
+                        snapshot.layer.transform = CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 1.0, 0.0)
+                    })
+                    
+                    UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
+                        snapshot.layer.transform = CATransform3DMakeRotation(CGFloat(0), 0.0, 1.0, 0.0)
+                        destinationView.layer.transform = CATransform3DMakeRotation(CGFloat(M_PI), 0.0, 1.0, 0.0)
+                    })
+            },
+                completion: { _ in
+                    
+            })
+
+        }
+    
+    }
+    
+    
     func cropImage(imageToCrop:UIImage, toRect rect:CGRect) -> UIImage{
         
         let imageRef:CGImage = imageToCrop.cgImage!.cropping(to: rect)!
