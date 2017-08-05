@@ -35,20 +35,26 @@ struct FlipTileAnimation : AJMAnimatable {
         // prepare the frames for the imageViews
         let width = mainImageView.frame.width / CGFloat(columns)
         let height = mainImageView.frame.height / CGFloat(rows)
+        
+        let imgWidth = image.size.width / CGFloat(columns)
+        let imgHeight = image.size.height / CGFloat(rows)
+        
          mainImageView.image = nil
         for i in 0..<Int(rows) {
             for j in 0..<Int(columns) {
                 let imgView = UIImageView(frame: CGRect(x: CGFloat(i)*width, y: CGFloat(j)*height, width: width, height: height))
                 print("rect \(imgView.frame)")
                 
-                
-                
-                let croppedImage = cropImage(imageToCrop: image, toRect: imgView.frame)
+                let imgRect = CGRect(x: CGFloat(i)*imgWidth, y: CGFloat(j)*imgHeight, width: imgWidth, height: imgHeight)
+
+                let croppedImage = cropImage(imageToCrop: image, toRect: imgRect)
                 imgView.image = croppedImage
                 imageViews.append(imgView)
                 mainImageView.addSubview(imgView)
             }
         }
+        
+        
        
     }
     
