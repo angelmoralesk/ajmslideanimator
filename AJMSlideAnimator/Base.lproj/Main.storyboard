@@ -33,7 +33,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDB-wq-bRf">
                                 <rect key="frame" x="16" y="526" width="343" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Simple"/>
+                                <state key="normal" title="Horizontal"/>
                                 <connections>
                                     <action selector="pressSimpleAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pDb-py-e4u"/>
                                 </connections>
@@ -41,7 +41,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19R-Th-qmm">
                                 <rect key="frame" x="16" y="573" width="343" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Multiple"/>
+                                <state key="normal" title="Vertical"/>
                                 <connections>
                                     <action selector="pressMultipleAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tgF-z3-DzW"/>
                                 </connections>

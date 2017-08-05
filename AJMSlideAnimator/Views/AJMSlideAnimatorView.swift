@@ -66,10 +66,7 @@ class AJMSlideAnimatorView : UIView {
     func animate(completion : @escaping (Bool) -> ()){
         animator?.animate(completion: completion)
     }
-    
-    func animateMultipleComponents(completion : @escaping (Bool) -> ()){
-        animator?.animate(completion: completion)
-    }
+
 
     
 }

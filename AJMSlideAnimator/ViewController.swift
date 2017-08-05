@@ -45,8 +45,7 @@ class ViewController: UIViewController {
         let image = UIImage(named: name)!
         
         animatorView.addSource(image: image, usingStyle: AJMSlideAnimatorStyle.Vertical)
-        animatorView.animateMultipleComponents(completion:{ (completed) in
-
+        animatorView.animate(completion:{ (completed) in
             self.index += 1
             if self.index > self.images.count - 1 {
                 self.index = 0
@@ -61,7 +60,7 @@ class ViewController: UIViewController {
         let image = UIImage(named: name)!
         
         animatorView.addSource(image: image, usingStyle: AJMSlideAnimatorStyle.Tile(5, 5))
-        animatorView.animateMultipleComponents(completion:{ (completed) in
+        animatorView.animate(completion:{ (completed) in
             
             self.index += 1
             if self.index > self.images.count - 1 {
