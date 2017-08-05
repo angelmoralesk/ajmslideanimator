@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,35 +23,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cQx-Zg-1fm" customClass="AJMSlideAnimatorView" customModule="AJMSlideAnimator" customModuleProvider="target">
-                                <rect key="frame" x="37" y="183" width="300" height="300"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQx-Zg-1fm" customClass="AJMSlideAnimatorView" customModule="AJMSlideAnimator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="110" width="375" height="373"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="cD0-Hp-LLp"/>
+                                    <constraint firstAttribute="width" secondItem="cQx-Zg-1fm" secondAttribute="height" multiplier="375:373" id="cXX-b3-Dnv"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDB-wq-bRf">
-                                <rect key="frame" x="16" y="20" width="343" height="30"/>
+                                <rect key="frame" x="16" y="526" width="343" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Simple"/>
                                 <connections>
-                                    <action selector="changeImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zl2-a4-fN4"/>
+                                    <action selector="pressSimpleAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pDb-py-e4u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19R-Th-qmm">
-                                <rect key="frame" x="16" y="66" width="343" height="30"/>
+                                <rect key="frame" x="16" y="573" width="343" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Multiple"/>
                                 <connections>
-                                    <action selector="useMultipleSlideAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hbV-Nm-lwm"/>
+                                    <action selector="pressMultipleAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tgF-z3-DzW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvp-f4-NV5">
+                                <rect key="frame" x="16" y="617" width="343" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Tile"/>
+                                <connections>
+                                    <action selector="pressTileAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="02s-pd-7vA"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="19R-Th-qmm" secondAttribute="bottom" constant="571" id="Jio-qe-6aW"/>
-                            <constraint firstItem="19R-Th-qmm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MCI-lk-BaB"/>
-                            <constraint firstItem="19R-Th-qmm" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Mu5-Vb-mMz"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="mDB-wq-bRf" secondAttribute="leading" id="Qur-vn-00Z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mDB-wq-bRf" secondAttribute="trailing" id="rln-Ys-HhR"/>
-                            <constraint firstItem="19R-Th-qmm" firstAttribute="top" secondItem="mDB-wq-bRf" secondAttribute="bottom" constant="16" id="uD4-p6-Hx3"/>
+                            <constraint firstItem="mDB-wq-bRf" firstAttribute="trailing" secondItem="19R-Th-qmm" secondAttribute="trailing" id="0vd-xy-2lM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jvp-f4-NV5" secondAttribute="trailing" id="EY1-jE-13W"/>
+                            <constraint firstItem="19R-Th-qmm" firstAttribute="trailing" secondItem="Jvp-f4-NV5" secondAttribute="trailing" id="Uji-wr-BI5"/>
+                            <constraint firstItem="cQx-Zg-1fm" firstAttribute="centerX" secondItem="19R-Th-qmm" secondAttribute="centerX" id="VTm-8H-84w"/>
+                            <constraint firstItem="Jvp-f4-NV5" firstAttribute="top" secondItem="19R-Th-qmm" secondAttribute="bottom" constant="14" id="YUo-RQ-g91"/>
+                            <constraint firstItem="mDB-wq-bRf" firstAttribute="top" secondItem="cQx-Zg-1fm" secondAttribute="bottom" constant="43" id="cl9-f8-ZXY"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Jvp-f4-NV5" secondAttribute="leading" id="hTN-sV-T6w"/>
+                            <constraint firstItem="19R-Th-qmm" firstAttribute="top" secondItem="mDB-wq-bRf" secondAttribute="bottom" constant="17" id="iAu-YD-j4D"/>
+                            <constraint firstItem="mDB-wq-bRf" firstAttribute="leading" secondItem="19R-Th-qmm" secondAttribute="leading" id="jBO-kQ-oze"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jvp-f4-NV5" secondAttribute="bottom" constant="20" id="m1z-nR-NhN"/>
+                            <constraint firstItem="19R-Th-qmm" firstAttribute="leading" secondItem="Jvp-f4-NV5" secondAttribute="leading" id="mXC-i5-7i3"/>
+                            <constraint firstItem="cQx-Zg-1fm" firstAttribute="centerX" secondItem="mDB-wq-bRf" secondAttribute="centerX" id="ss8-zf-Jbj"/>
                         </constraints>
                     </view>
                     <connections>

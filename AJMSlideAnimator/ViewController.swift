@@ -24,16 +24,12 @@ class ViewController: UIViewController {
        
     }
     
-    @IBAction func changeImage(_ sender: UIButton) {
+    @IBAction func pressSimpleAnimation(_ sender: UIButton) {
      
-        var style :AJMSlideAnimatorStyle = .Horizontal
-        if index % 2 == 0 {
-            style = .Vertical
-        }
         let name = images[index]
         let image = UIImage(named: name)!
         
-        animatorView.addSource(image: image, usingStyle: style)
+        animatorView.addSource(image: image, usingStyle: AJMSlideAnimatorStyle.Horizontal)
         animatorView.animate(completion: {(completed) in
             self.index += 1
             if self.index > self.images.count - 1 {
@@ -41,19 +37,16 @@ class ViewController: UIViewController {
             }
         })
 
-        
-      
     }
 
-    @IBAction func useMultipleSlideAnimation(_ sender: Any) {
+    @IBAction func pressMultipleAnimation(_ sender: UIButton) {
         
         let name = images[index]
         let image = UIImage(named: name)!
         
-        let slide : AJMSlide = .Multiple
-        animatorView.addSource(image: image, usingStyle: .Vertical, slide : slide)
+        animatorView.addSource(image: image, usingStyle: AJMSlideAnimatorStyle.Vertical)
         animatorView.animateMultipleComponents(completion:{ (completed) in
-            
+
             self.index += 1
             if self.index > self.images.count - 1 {
                 self.index = 0
@@ -61,5 +54,23 @@ class ViewController: UIViewController {
         })
     
     }
+    
+    @IBAction func pressTileAnimation(_ sender: UIButton) {
+     
+        let name = images[index]
+        let image = UIImage(named: name)!
+        
+        animatorView.addSource(image: image, usingStyle: AJMSlideAnimatorStyle.Tile(5, 5))
+        animatorView.animateMultipleComponents(completion:{ (completed) in
+            
+            self.index += 1
+            if self.index > self.images.count - 1 {
+                self.index = 0
+            }
+        })
+    }
+    
+    
+        
 }
 
