@@ -59,36 +59,24 @@ struct FlipTileAnimation : AJMAnimatable {
     }
     
     func prepareContent() {
-        
-       /* guard let image = mainImageView.image else { return }
-        
-        for i in 0..<imageViews.count {
-            let anImageView =  imageViews[i]
-            let croppedImage = cropImage(imageToCrop: image, toRect: anImageView.frame)
-            anImageView.image = croppedImage
-        }
-        */
     }
     
-    func animate(completion: @escaping (Bool) -> ()) {
+    func animateOne(completion: @escaping (Bool) -> ()) {
         
         let snapshot = imageViews[2]
+        let destinationView = UIImageView(frame: snapshot.frame)
+
         let finalFrame = imageViews[2].frame
-        
-        let copy = UIImageView(frame: snapshot.frame)
-        copy.image = snapshot.image
-        let image = snapshot.image
-        mainImageView.addSubview(copy)
-       // snapshot.image = nil
         
         var transform = CATransform3DIdentity
         transform.m34 = -0.002
         mainImageView.layer.sublayerTransform = transform
-        
-        copy.layer.transform = CATransform3DMakeRotation(CGFloat(-M_PI_2), 0.0, 1.0, 0.0)
+        self.mainImageView.insertSubview(destinationView, belowSubview: imageViews[2])
+
+        destinationView.layer.transform = CATransform3DMakeRotation(CGFloat(-M_PI_2), 0.0, 1.0, 0.0)
         
         UIView.animateKeyframes(
-            withDuration: 6,
+            withDuration: TimeInterval(Int(arc4random_uniform(UInt32(10)))),
             delay: 0,
             options: .calculationModeCubic,
             animations: {
@@ -102,15 +90,12 @@ struct FlipTileAnimation : AJMAnimatable {
                 })
                 
                 UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
-                   // toVC.view.layer.transform = AnimationHelper.yRotation(0.0)
-                    copy.layer.transform = CATransform3DMakeRotation(CGFloat(0.0), 0.0, 1.0, 0.0)
-
+                    snapshot.layer.transform = CATransform3DMakeRotation(CGFloat(M_PI), 0.0, 1.0, 0.0)
+                    destinationView.layer.transform = CATransform3DMakeRotation(CGFloat(0), 0.0, 1.0, 0.0)
                 })
         },
             completion: { _ in
-              //  fromVC.view.hidden = false
-              //  snapshot.removeFromSuperview()
-              //  transitionContext.completeTransition(!transitionContext.transitionWasCancelled())*/
+             
         })
     }
     
