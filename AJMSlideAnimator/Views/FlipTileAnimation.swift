@@ -114,7 +114,7 @@ struct FlipTileAnimation : AJMAnimatable {
             
             destinationView.layer.transform = CATransform3DMakeRotation(CGFloat(-M_PI_2), 0.0, 1.0, 0.0)
             
-            let time = Int32(arc4random_uniform(UInt32(10)) - arc4random_uniform(UInt32(2)))
+            let time = Int32(arc4random_uniform(UInt32(5)))+2
             
             UIView.animateKeyframes(
                 withDuration: TimeInterval(abs(time)),
@@ -136,7 +136,7 @@ struct FlipTileAnimation : AJMAnimatable {
                     })
             },
                 completion: { _ in
-                    
+                    completion(true)
             })
 
         }

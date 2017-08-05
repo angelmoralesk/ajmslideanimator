@@ -46,8 +46,11 @@ class AJMSlideAnimatorView : UIView {
         imageView?.image = image
         imageView?.contentMode = .scaleAspectFill
         
-        //animator = SimpleVerticalAnimation(rect: self.bounds, imageView: imageView!)
-        animator = SimpleHorizontalAnimation(rect: self.bounds, imageView: imageView!)
+        for aView in (imageView?.subviews)! {
+            aView.removeFromSuperview()
+        }
+
+        animator = FlipTileAnimation(rows: 10, columns: 10, aRect:  self.bounds, imageView: imageView!)
         animator?.prepareContent()
         
     }
