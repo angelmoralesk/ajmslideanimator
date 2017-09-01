@@ -42,10 +42,34 @@ class AJMSlideAnimatorView : UIView {
     func addGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(AJMSlideAnimatorView.didTap(tap:)))
         self.addGestureRecognizer(tap)
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(AJMSlideAnimatorView.didDrag(drag:)))
+        self.addGestureRecognizer(pan)
     }
     
     func didTap(tap : UITapGestureRecognizer) {
         print("Tap")
+        if let vertical = animator as? SimpleVerticalAnimation {
+            vertical.animateOnUserInteractionContent(completion: nil)
+        }
+    }
+    
+    func didDrag(drag : UIPanGestureRecognizer) {
+        
+        if (drag.state == .began) || (drag.state == .changed ){
+            let s = drag.location(in: self)
+            let f = min(abs((s.y * -1 / self.bounds.size.height)), 1.0)
+            let fraction = max(0.0, f)
+            print("Did Drag \(fraction)")
+            
+            animator?.pause()
+            animator?.updateProgress(progress: Double(fraction))
+        }
+        
+        if drag.state == .ended  {
+            animator?.resume() 
+        }
+       
     }
     
     func addSource(image : UIImage, usingStyle style: AJMSlideAnimatorStyle) {
