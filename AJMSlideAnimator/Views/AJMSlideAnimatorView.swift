@@ -75,7 +75,12 @@ class AJMSlideAnimatorView : UIView {
     }
 
     func animate(completion : @escaping (Bool) -> ()){
-        animator?.animate(completion: completion)
+        if let vertical = animator as? SimpleVerticalAnimation {
+            vertical.animateOnUserInteractionContent(completion: completion)
+        } else {
+            animator?.animate(completion: completion)
+
+        }
     }
 
 
