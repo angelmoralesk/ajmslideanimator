@@ -20,7 +20,6 @@ struct FlipTileAnimation : AJMAnimatable {
         self.mainImageView = imageView
         
         let image = mainImageView.image!
-        //let size = image.size.applying(CGAffineTransform(scaleX: 0.5, y: 0.5))
         let size = imageView.frame.size
         let hasAlpha = false
         let scale: CGFloat = 0.0 // Automatically use scale factor of main screen

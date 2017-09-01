@@ -23,6 +23,7 @@ class AJMSlideAnimatorView : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         prepareImageView()
+        addGesture()
     }
     
     func prepareImageView(){
@@ -35,6 +36,16 @@ class AJMSlideAnimatorView : UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         prepareImageView()
+        addGesture()
+    }
+    
+    func addGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AJMSlideAnimatorView.didTap(tap:)))
+        self.addGestureRecognizer(tap)
+    }
+    
+    func didTap(tap : UITapGestureRecognizer) {
+        print("Tap")
     }
     
     func addSource(image : UIImage, usingStyle style: AJMSlideAnimatorStyle) {
@@ -55,7 +66,7 @@ class AJMSlideAnimatorView : UIView {
         case .Tile(let rows,let columns):
             animator = FlipTileAnimation(rows: rows , columns: columns, aRect: self.bounds, imageView: imageView!)
             break
-        default: break
+  
         }
 
         guard let animator = animator else { return }
