@@ -14,6 +14,7 @@ struct SimpleVerticalAnimation : AJMAnimatable {
     let mainImageView : UIImageView
     var compOne : UIImageView
     var compTwo : UIImageView
+    var propertyAnimator : UIViewPropertyAnimator
     
     init(rect : CGRect, imageView :UIImageView) {
         self.rect = rect
@@ -28,6 +29,8 @@ struct SimpleVerticalAnimation : AJMAnimatable {
         let secondRect = CGRect(x: width, y: 0, width: width, height: height)
         compTwo = UIImageView(frame: secondRect)
         
+        let timming = UICubicTimingParameters(animationCurve: .linear)
+        self.propertyAnimator = UIViewPropertyAnimator(duration: 5.0, timingParameters: timming)
     }
     
     func prepareContent() {
@@ -104,5 +107,49 @@ struct SimpleVerticalAnimation : AJMAnimatable {
         }
     }
     
+    func animateOnUserInteractionContent(completion: ((Bool) -> ())?) {
+        
+        if self.propertyAnimator.isRunning {
+            
+            self.propertyAnimator.isReversed = true
+            
+        } else {
+            
+            var firstEndFrame : CGRect = CGRect.zero
+            var secondEndFrame : CGRect = CGRect.zero
+            
+            firstEndFrame = CGRect(x: 0, y: compOne.frame.height, width: compOne.frame.width, height: compOne.frame.height)
+            secondEndFrame = CGRect(x: compTwo.frame.origin.x, y: compTwo.frame.height * -1, width: compTwo.frame.width , height: self.compTwo.frame.height)
+            
+             mainImageView.image = nil
+            propertyAnimator.addAnimations {
+                self.compOne.frame = firstEndFrame
+                self.compTwo.frame = secondEndFrame
+            }
+            
+            propertyAnimator.addCompletion({ (UIViewAnimatingPosition) in
+                self.compOne.removeFromSuperview()
+                self.compTwo.removeFromSuperview()
+                completion?(true)
+            })
+            
+            propertyAnimator.startAnimation()
+        }
+       
     
+        
+    }
+ 
+    func pause() {
+        propertyAnimator.pauseAnimation()
+    }
+    
+    func updateProgress(progress: Double) {
+        propertyAnimator.fractionComplete = CGFloat(progress)
+    }
+    
+    func resume() {
+        propertyAnimator.isReversed = false
+        propertyAnimator.startAnimation()
+    }
 }
